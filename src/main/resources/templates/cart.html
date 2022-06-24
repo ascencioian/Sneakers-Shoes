@@ -43,7 +43,7 @@
                 
                 
               
-                <a href="/html/index.html" class="link-dark text-decoration-none"><h1 class="mt">Sneakers & Shoes</h1></a>
+                <a href="#" th:href="@{/}" class="link-dark text-decoration-none"><h1 class="mt">Sneakers & Shoes</h1></a>
 
             </div>
             
@@ -75,7 +75,7 @@
                 <div class="container d-block ">
                     <div class="row">
                         <div class="col-md-3 text-center text-white py-2 ">
-                            <a href="/html/gallery.html" class="">  <span class="mt-n3">Sneakers</span></a>
+                            <a href="#" th:href="@{/gallery}" class="">  <span class="mt-n3">Sneakers</span></a>
                         </div>
                         <div class="col-md-3 text-center text-white py-2"> 
                             <a href="#" class=""><span>Sports</span></a>
@@ -84,7 +84,7 @@
                             <a href="/promoPage" class=""><span>Promo</span></a>
                         </div>
                         <div class="col-md-3 text-center text-white py-2">
-                            <a href="/html/login.html" class="">  <span>Login</span></a>
+                            <a href="#" th:href="@{/logout}" class="">  <span>Logout</span></a>
                           
                         </div>
                     </div>
@@ -97,7 +97,9 @@
     
     <!-- cart -->
     <section class="blog-home pt-5 mt-5 container">
+      
         <h2 class="font-weight-bold pt-5">Shopping cart</h2>
+        Welcome <span sec:authentication="principal.username">User</span>
         <hr>
     </section>
     <section id="cart-container" class="container my-5">

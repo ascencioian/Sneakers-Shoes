@@ -29,6 +29,7 @@ public class MainController {
         model.addAttribute("s1", s1);
 		model.addAttribute("something", "this is something");
 		model.addAttribute( "sneaker", repo.getSneakers());
+System.out.println(user);
         return "index";
     }
 
