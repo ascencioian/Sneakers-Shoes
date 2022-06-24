@@ -1,7 +1,11 @@
 package com.project.entity;
 
 import javax.persistence.*;
+
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
@@ -15,6 +19,7 @@ public class User {
    private String email;
    private String password;
 
+   //role table
    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
    @JoinTable(
            name = "users_roles",
@@ -23,6 +28,10 @@ public class User {
            inverseJoinColumns = @JoinColumn(
                    name = "role_id", referencedColumnName = "id"))
    private Collection<Role> roles;
+   
+// relationship table
+	@ManyToMany(targetEntity = Sneaker.class, cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+	private List<Sneaker> uSneakers = new ArrayList<Sneaker>();
 
    public User() {
    }
@@ -74,7 +83,8 @@ public class User {
        this.email = email;
    }
 
-   public String getPassword() {
+
+public String getPassword() {
        return password;
    }
 
@@ -90,6 +100,15 @@ public class User {
        this.roles = roles;
    }
 
+   public List<Sneaker> getuSneakers() {
+	return uSneakers;
+}
+
+public void setuSneakers(List<Sneaker> uSneakers) {
+	this.uSneakers = uSneakers;
+}
+   
+   
    @Override
    public String toString() {
        return "User{" +

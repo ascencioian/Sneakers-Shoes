@@ -1,5 +1,8 @@
 package com.project.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +14,8 @@ import com.project.entity.Sneaker;
 import com.project.entity.User;
 import com.project.service.SneakerService;
 import com.project.service.UserService;
+
+
 
 @Controller
 public class MainController {
@@ -70,6 +75,7 @@ System.out.println(user);
         return "cart";
     }
   
+    //-----------------------------posts 
     
     @PostMapping("/product")
 	  public String showproductForm(@ModelAttribute("s1") Sneaker s1, Model model) {
@@ -79,4 +85,29 @@ System.out.println(user);
 		 
 	      return "product";
 	  }
+    
+    @PostMapping("/addToCart")
+	  public String addToCart(Model model) {
+    	
+    	String emailtest = "ian.ascencio.mancia@gmail.com";
+    	// Create student object
+    	User u1 = userRepo.findByEmail(emailtest);
+    	
+    	// create course list
+    	List<Sneaker> sneakersInCart = u1.getuSneakers();
+    	System.out.println(sneakersInCart);
+    	model.addAttribute( "sneakersInCart", sneakersInCart);
+    	//create the shoe object
+    	//Optional<Sneaker> sneaker = repo.getSneaker(sku);
+    	
+    	
+    	//add to relationship table
+    	//sneakersInCart.add(sneaker);
+    	//set new attribute for user
+    	//u1.setuSneakers(sneakersInCart);
+		 
+	      return "cart";
+	  }
+    
+    
 }

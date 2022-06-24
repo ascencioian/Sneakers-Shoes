@@ -113,7 +113,7 @@
                     <td>Price</td>
                     <td>Total</td>
                 </tr>
-                <tbody>
+                <tbody th:each="sneakersInCart, stat: ${sneakersInCart}" th:if="${stat.count < 5}">
                     <tr>
                         <td>
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -121,19 +121,23 @@
                               </svg></a>
                         </td>
                         <td>
-                            <img src="/img/svg/noun-sneaker-2278555.svg" alt="">
+                            <img src="/img/svg/noun-sneaker-2278555.svg"  th:src="@{${sneakersInCart.image}}" alt="">
                         </td>
                         <td>
-                            <h5>product name</h5>
+                            <p th:text="${sneakersInCart.name}" class="overflow-wrap: break-word";
+                            >product name</p>
                         </td>
                         <td>
                             <input type="number" class="w-25 pl-1" value="1">
                         </td>
                         <td>
-                            <h5>Price</h5>
+                            <h5 th:text="${sneakersInCart.marketvalue}">Price</h5>
                         </td>
                         <td>
                             <h5>Total</h5>
+                            <div th:with="result=${sneakersInCart.marketvalue * 1}">
+							  <span th:text="${result}"></span>
+							</div>
                         </td>
                     </tr>
                 </tbody>

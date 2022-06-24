@@ -112,7 +112,7 @@
                         </button>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">5</a>
+                            <a class="dropdown-item-text" href="#">5</a>
                             <a class="dropdown-item" href="#">5.5</a>
                           <a class="dropdown-item" href="#">6</a>
                           <a class="dropdown-item" href="#">6.5</a>
@@ -130,8 +130,51 @@
                         </ul>
 
                     </div>
+                    
                    
                     <button class="btn btn-outline-danger btn-lg">Add To Cart</button>
+                    
+                    
+           <form action="#" th:action="@{/addToCart}" method="post" th:object="${s1}">
+                    
+                        <div class="col-lg-7">
+                            <input type="text" placeholder="s1 name" class=""  th:value="${s1.name}" th:name="name" th:id="name">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="text" placeholder="s1 price" class="" th:value="${s1.marketvalue}" th:name="marketvalue" th:id="marketvalue" >
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="text" placeholder="s1 image" class="" th:value="${s1.image}" th:name="image" th:id="image">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="text" placeholder="s1 sku" class="" th:value="${s1.sku}" th:name="sku" th:id="sku">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="text" placeholder="s1 brand" class="" th:value="${s1.brand}" th:name="brand" th:id="brand">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="text" placeholder="s1 gender" class="" th:value="${s1.gender}" th:name="gender" th:id="gender">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="text" placeholder="s1 colorway" class="" th:value="${s1.colorway}" th:name="colorway" th:id="colorway">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="text" placeholder="s1 realease date" class="" th:value="${s1.releasedate}" th:name="releasedate" th:id="releasedate">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="text" placeholder="s1 retail price" class="" th:value="${s1.retailprice}" th:name="retailprice" th:id="retailprice">
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-7">
+                            <button type="submit" class="btn btn-outline-danger btn-lg">Add To Cart</button>
+                        </div>
+                    </form>
+                    
+                    
+                    
+                    
 
                     <div class="dropdown my-4 d-block " >
 
@@ -141,6 +184,8 @@
                 </div>
                  <img class="img-fluid " th:src="@{${s1.image}}" alt="product">
             </div>
+            
+        
         </div>
     </section>
 
