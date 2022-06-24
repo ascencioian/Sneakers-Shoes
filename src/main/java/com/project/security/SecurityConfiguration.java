@@ -1,4 +1,4 @@
-package com.project.sec;
+package com.project.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -23,10 +23,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
        http
                .authorizeRequests()
                    .antMatchers(
+                		   "/resources/**",
                            "/registration**",
                            "/js/**",
                            "/css/**",
                            "/img/**",
+                           "/video/**",
                            "/webjars/**").permitAll()
                    .anyRequest().authenticated()
                .and()

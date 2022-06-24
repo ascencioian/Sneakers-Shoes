@@ -1,29 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- font -->
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
-    
     <!-- external css -->
-    <link rel="stylesheet" href="/css/index.css">
-  </head>
+    <link rel="stylesheet" href="/css/gallery.css">
+    <title>Gallery Page</title>
 </head>
 <body>
-
-    <!-- header -->
-    <div class="container">
+     <!-- header -->
+     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-black d-flex">
             <div class="d-md-none">
-                <a href="#" class="thumbnail navbar-brand logo ">
+                <a href="/html/index.html" class="thumbnail navbar-brand logo ">
                     <img
                     src=
                     "/img/svg/hamburger.svg"
@@ -45,19 +41,11 @@
             <div class="container justify-content-center position-absolute">
                 
                 
-               
-                <h1 class="mt">Sneakers & Shoes</h1>
+              
+                <a href="#" class="link-dark text-decoration-none"><h1 class="mt">Sneakers & Shoes</h1></a>
 
             </div>
-             
-                
-               
-
             
-
-           
-            
-       
             <div class = "d-sm-none  d-md-block d-none d-md-block">
                 <a href="#" class="thumbnail navbar-brand logo">
                     <img
@@ -74,7 +62,6 @@
                     />
                 </a>
             </div>
-        
         </nav>
     </div>
     <!-- navbar -->
@@ -86,7 +73,7 @@
             <div class="container d-block ">
                 <div class="row">
                     <div class="col-md-3 text-center text-white py-2 ">
-                        <a href="#" th:href="@{/gallery}" class="">  <span class="mt-n3">Sneakers</span></a>
+                        <a href="#" th:href="@{/}" class="">  <span class="mt-n3">Home Page</span></a>
                     </div>
                     <div class="col-md-3 text-center text-white py-2"> 
                         <a href="#" class=""><span>Sports</span></a>
@@ -105,40 +92,98 @@
    
         </nav>
     </div>
-
-
-    <!-- showcase -->
-    <section class = "text-center">
-        <div class="container" >
-            <div class="d-sm-flex align-items-center"> 
-                <div class="">
-                                           <p>
-        Welcome <span sec:authentication="principal.username">User</span>
-     </p>
-                    <img class="img-fluid d-block d-sm-block d-md-none mx-auto" src="/img/svg/homePageSneakerMobile.svg" alt="Promo of product X">
-                     
-                    <h1 class="my-4">
-                        Introducing product X.
-                        Our lightest shoe, ever. 
-                    </h1>
-                 
-                    <a href="#" th:href="@{/productX}"> <button class="btn btn-outline-danger btn-lg">Shop Now</button></a>
-                </div>
-                <img class="img-fluid w-50 d-none d-md-block"  src="/img/png/homePageSneakerDesktop.png" alt="Promo of product X">
-            </div>
-        </div>
-    </section>
-
-    <!-- product -->
+   <!-- product -->
     <section class="p-5 text-center">
         <div class="container bg-light">
             <h2 class="my-4 pt-4 " id="newReleasesHeader">New Releases</h2>
             
             <div class="row">
               
-                <div class="col-md" th:each="sneaker, stat: ${sneaker}" th:if="${stat.count < 5}">
+                <div class="col-md" th:each="sneaker, stat: ${sneaker}" th:if="${stat.count < 4}">
                     <a href="#" th:href="@{/product}">
                         <div class="card bg-white text-dark ">
+                        
+                            <img class="img-fluid " th:src="@{${sneaker.image}}" alt="Promo of product X">
+                        </div>
+                    </a>
+                    
+                    <h4 th:text="${sneaker.name}"/>
+                  
+                    <h4 th:text="${sneaker.marketvalue}"/>
+                    
+                    <form action="#" th:action="@{/product}" method="post" th:object="${s1}">
+                    
+                        <div class="col-lg-7">
+                            <input type="hidden" placeholder="s1 name" class=""  th:value="${sneaker.name}" th:name="name" th:id="name">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="hidden" placeholder="s1 price" class="" th:value="${sneaker.marketvalue}" th:name="marketvalue" th:id="marketvalue" >
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="hidden" placeholder="s1 image" class="" th:value="${sneaker.image}" th:name="image" th:id="image">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="hidden" placeholder="s1 sku" class="" th:value="${sneaker.sku}" th:name="sku" th:id="sku">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="hidden" placeholder="s1 brand" class="" th:value="${sneaker.brand}" th:name="brand" th:id="brand">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="hidden" placeholder="s1 gender" class="" th:value="${sneaker.gender}" th:name="gender" th:id="gender">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="hidden" placeholder="s1 colorway" class="" th:value="${sneaker.colorway}" th:name="colorway" th:id="colorway">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="hidden" placeholder="s1 realease date" class="" th:value="${sneaker.releasedate}" th:name="releasedate" th:id="releasedate">
+                        </div>
+                         <div class="col-lg-7">
+                            <input type="hidden" placeholder="s1 retail price" class="" th:value="${sneaker.retailprice}" th:name="retailprice" th:id="retailprice">
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-7">
+                            <button type="submit" class="btn btn-dark btn-sm my-2">submit</button>
+                        </div>
+                    </form>
+                    
+                </div>
+                    
+            </div>
+        </div>
+    </section>
+    </section>
+    <!-- video -->
+    <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-around  " id="promoBannerBackground"> 
+        <div>
+            <h1 class="display-1 d-none d-md-block ">
+               S*N*S
+            </h1>
+        </div>
+
+        <div class="embed-responsive embed-responsive-16by9 py-2 px-2 bg-black">
+            <iframe class="embed-responsive-item" src="/video/Commercial .mp4" allowfullscreen sandbox></iframe>
+          </div>
+          <div>
+            <h1 class="display-1 d-none d-md-block ">
+                S*N*S
+            </h1>
+        </div>
+        </div>
+    </div>
+
+    <!-- product -->
+    <section class="p-5 text-center">
+        <div class="container bg-light">
+            <h2 class="my-4 pt-4 " id="newReleasesHeader">Sneaker Gallery</h2>
+            
+            <div class="row">
+              
+                <div class="col-md"  th:each="sneaker, stat: ${sneaker}">
+                    <a href="#" th:href="@{/product}">
+                        <div class="card bg-white text-dark" style="width: 18rem;">
                         
                             <img class="img-fluid " th:src="@{${sneaker.image}}" alt="Promo of product X">
                         </div>
@@ -190,28 +235,8 @@
             </div>
         </div>
     </section>
-
-    <!-- newsletter -->
-    <section class="p-5 text-center">
-        <div class="container">
-            <div class="d-sm-flex align-items-center justify-content-around">
-                <h1 class="display-1 px-3">
-                    <u>Never Miss A Drop. </br>Ever.</u>
-                </h1>
-                
-                <div >
-                    <h2 class = "my-4  display-3">
-                        S*N*S
-                    </h2>
-                    <button class="btn btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Register</button>
-                    <h2 class = "my-4 display-3">
-                        S*N*S
-                    </h2>
-                </div>
-            </div>
-        </div>
+        
     </section>
-
     <!-- footer -->
     <footer class="p-5 bg-dark text-white 
     text-center">
@@ -219,78 +244,5 @@
             <p>©2022 Sneakers & Shoes inc. All Rights Reserved</p>
         </div>
     </footer>
-
-    <!-- enroll modal -->
-    <div class="modal fade" id="enroll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Register Form</h5>
-              <button type="button" class="close btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            
-            <div class="modal-body">
-                <p class="lead">Never miss a drop. Ever.</p>
-
-                <form class="form" id="form" action="#" th:action="@{/signup}" method="post" th:object="${user}">
-                
-
-                    <div class="mb-3">
-                      <label for="first-name" class="col-form-label">
-                        First Name:
-                      </label>
-                      <input type="text" class="form-control " id="firstName" th:field="*{firstName}" />
-                      <img src="/img/svg/check-circle.svg" alt="check-circle" class="formIcon check">
-                      <img src="/img/svg/exclamation-circle.svg" alt="check-circle" class="formIcon exclamation">
-            <small class="formErrorMessage">Error message</small>
-                    </div>
-                    <div class="mb-3">
-                      <label for="last-name" class="col-form-label">Last Name:</label>
-                      <input type="text" class="form-control " id="lastName" th:field="*{lastName}" />
-                      <img src="/img/svg/check-circle.svg" alt="check-circle" class="formIcon">
-                      <img src="/img/svg/exclamation-circle.svg" alt="check-circle" class="formIcon">
-            <small class="formErrorMessage">Error message</small>
-                    </div>
-                    <div class="mb-3">
-                      <label for="email" class="col-form-label">Email:</label>
-                      <input type="email" class="form-control" id="email" th:field="*{email}" />
-                      <img src="/img/svg/check-circle.svg" alt="check-circle" class="formIcon">
-                      <img src="/img/svg/exclamation-circle.svg" alt="check-circle" class="formIcon">
-            <small class="formErrorMessage">Error message</small>
-                    </div>
-                    <div class="mb-3">
-                      <label for="password" class="col-form-label">Password:</label>
-                      <input type="password" class="form-control" id="password" th:field="*{password}"/>
-                      <img src="/img/svg/check-circle.svg" alt="check-circle" class="formIcon">
-                      <img src="/img/svg/exclamation-circle.svg" alt="check-circle" class="formIcon">
-            <small class="formErrorMessage">Error message</small>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="col-form-label">Confirm Password:</label>
-                        <input type="password" class="form-control" id="passwordCheck" />
-                        <img src="/img/svg/check-circle.svg" alt="check-circle" class="formIcon">
-                      <img src="/img/svg/exclamation-circle.svg" alt="check-circle" class="formIcon">
-            <small class="formErrorMessage">Error message</small>
-                      </div>
-                     
-            
-                  </form>
-            </div>
-
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <!-- submit button -->
-            <button type="button"  class="btn btn-outline-success">Submit</button>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <!-- scripts -->
-    <script src="/js/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

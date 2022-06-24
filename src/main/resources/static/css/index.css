@@ -1,0 +1,81 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
+/* colorpallete */
+.first-color {
+	background: #f7edd7;
+}
+
+/* actoin */
+.second-color {
+	background: #3b0944;
+}
+
+.third-color {
+	background: #5f1854;
+}
+
+
+.fourth-color {
+	background: #1abb9c;
+}
+
+.card {
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+	transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+	padding: 14px 80px 18px 0px;
+	cursor: pointer;
+}
+
+.card:hover {
+	transform: scale(1.05);
+	box-shadow: 0 10px 20px rgba(246, 47, 47, 0.853), 0 4px 8px rgba(68, 20, 20, 0.06);
+}
+
+a{
+  text-decoration: none;
+  color:white;
+}
+
+a:hover{
+  color:red;
+}
+
+
+.filter-green {
+	filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+.formIcon {
+	visibility: hidden;
+}
+
+.formErrorMessage {
+	visibility: hidden;
+}
+
+.formControlSuccess {
+	border-color: #2ecc71;
+}
+
+.formControlSuccess+img {
+	visibility: visible;
+
+}
+
+.formControlError+img+img {
+	visibility: visible;
+}
+
+.formControlError {
+	border-color: #e74c3c;
+}
+
+.formControlError+img+img+small {
+	visibility: visible;
+	color: red;
+}

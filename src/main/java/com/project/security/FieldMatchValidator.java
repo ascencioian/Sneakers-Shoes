@@ -1,4 +1,4 @@
-package com.project.sec;
+package com.project.security;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

@@ -1,33 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp Page</title>
-        <!-- bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-        <!-- font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
-        <!-- external css -->
-        <link rel="stylesheet" href="/css/signup.css">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" type="text/css"
+  th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+
+<title>User Registration</title>
 </head>
 <body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+     <div class="container">
+        <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed"
+              data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+              aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span> <span
+                 class="icon-bar"></span> <span class="icon-bar"></span> <span
+                 class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="#" th:href="@{/}">Registration and
+              Login Module</a>
+        </div>
+     </div>
+  </nav>
 
-    <section class="form my-4 mx-5">
-        <div class="container">
-            <div class="row gx-0 ">
-                <div class="col-lg-5 bg-secondary bg-gradient">
-                    <img src="/img/png/homePageSneakerDesktop.png" class = "img-fluid" alt="">
-                </div>
-                <div class="col-lg-7 px-5 py-5 ">
-                    <div class = "my-3 mx-4">
-                        <h1>Sneakers & Shoes</h1>
-                        <h4>Sign up for an account</h4>
-                    </div>
-                 <form th:action="@{/registration}" th:object="${user}" method="post">
+  <br>
+  <br>
+
+  <div class="container">
+     <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+           <div th:if="${param.success}">
+              <div class="alert alert-info">You've successfully registered
+                 to our awesome app!</div>
+           </div>
+
+           <h1>Registration</h1>
+           <form th:action="@{/registration}" th:object="${user}" method="post">
 
               <p class="error-message" th:if="${#fields.hasGlobalErrors()}"
                  th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
@@ -101,13 +114,13 @@
               </div>
 
            </form>
-                </div>
-            </div>
         </div>
-    </section>
-    
-    <!-- scripts -->
-    <script src="/js/login.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+     </div>
+  </div>
+
+  <script type="text/javascript"
+     th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+  <script type="text/javascript"
+     th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 </body>
 </html>

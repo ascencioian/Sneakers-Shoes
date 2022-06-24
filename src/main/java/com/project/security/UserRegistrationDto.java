@@ -1,12 +1,11 @@
-package com.project.sec;
+package com.project.security;
 
 import javax.validation.constraints.AssertTrue;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-//import net.javaguides.springboot.springsecurity.constraint.FieldMatch;
-import com.project.sec.*;
+import com.project.security.*;
 
 @FieldMatch.List({
     @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),

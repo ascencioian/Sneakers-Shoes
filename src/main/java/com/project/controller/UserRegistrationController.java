@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.project.model.User;
-import com.project.sec.UserRegistrationDto;
+import com.project.entity.User;
+import com.project.security.UserRegistrationDto;
 import com.project.service.UserService;
 
 @Controller
