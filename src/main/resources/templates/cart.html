@@ -99,7 +99,7 @@
     <section class="blog-home pt-5 mt-5 container">
       
         <h2 class="font-weight-bold pt-5">Shopping cart</h2>
-        Welcome <span sec:authentication="principal.username">User</span>
+        Welcome, <span sec:authentication="principal.username" class="text-danger">User</span>.
         <hr>
     </section>
     <section id="cart-container" class="container my-5">

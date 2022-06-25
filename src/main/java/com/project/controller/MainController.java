@@ -87,8 +87,9 @@ System.out.println(user);
 	  }
     
     @PostMapping("/addToCart")
-	  public String addToCart(Model model) {
+	  public String addToCart(@ModelAttribute("s1") Sneaker s1, Model model) {
     	
+    	//dont know how to pass this 
     	String emailtest = "ian.ascencio.mancia@gmail.com";
     	// Create student object
     	User u1 = userRepo.findByEmail(emailtest);
@@ -96,15 +97,20 @@ System.out.println(user);
     	// create course list
     	List<Sneaker> sneakersInCart = u1.getuSneakers();
     	System.out.println(sneakersInCart);
+    	
+    	//add to relationship table
+    	sneakersInCart.add(s1);
+    	
+    	//add model attributes 
     	model.addAttribute( "sneakersInCart", sneakersInCart);
     	//create the shoe object
     	//Optional<Sneaker> sneaker = repo.getSneaker(sku);
     	
     	
-    	//add to relationship table
-    	//sneakersInCart.add(sneaker);
+    	
+    	
     	//set new attribute for user
-    	//u1.setuSneakers(sneakersInCart);
+    	u1.setuSneakers(sneakersInCart);
 		 
 	      return "cart";
 	  }
