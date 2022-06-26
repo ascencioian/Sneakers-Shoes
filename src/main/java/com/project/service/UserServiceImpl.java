@@ -4,8 +4,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -55,4 +57,30 @@ public class UserServiceImpl implements UserService {
                .map(role -> new SimpleGrantedAuthority(role.getName()))
                .collect(Collectors.toList());
    }
+   
+   
+   public User getCurrentlyLoggedInUser(Authentication authentication) {
+	  // if(authentication == null) return null;
+	   
+	   //User user = null;
+	   
+	   Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	   
+	   String username = "";
+	   
+	   //here need to get object
+	   if(principal instanceof UserDetails) {
+		   username = ((UserDetails)principal).getUsername();
+	   }
+	   
+	   User user = userRepository.findByEmail(username);
+	   
+	   
+	   
+	    System.out.println("from userservice implementation "  + user);
+		return user;	   
+   }
+
+
 }
+   

@@ -34,7 +34,7 @@ public class MainController {
         model.addAttribute("s1", s1);
 		model.addAttribute("something", "this is something");
 		model.addAttribute( "sneaker", repo.getSneakers());
-System.out.println(user);
+//System.out.println(user);
         return "index";
     }
 
@@ -66,14 +66,14 @@ System.out.println(user);
         return "gallery";
     }
     
-    @GetMapping("/cart")
-    public String cart(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-         
-         
-        return "cart";
-    }
+//    @GetMapping("/cart")
+//    public String cart(Model model) {
+//        User user = new User();
+//        model.addAttribute("user", user);
+//         
+//         
+//        return "cart";
+//    }
   
     //-----------------------------posts 
     
