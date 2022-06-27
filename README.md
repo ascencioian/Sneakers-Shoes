@@ -1,5 +1,9 @@
 # Full Stack E-Commerce Application
-This project is for creating a school management system where students can register for courses, and view the course assigned to them.
+This project is a full stack application that is a concept of an sneaker e-commerce site. it is built on top of spring tool suite and implements spring security.
+
+inspiration for this project was provided by:
+https://stockx.com/
+https://www.flightclub.com/
 
 **Link to project:**
 ![Sneaker Store Demo](src/main/resources/static/demo/demo.gif)
