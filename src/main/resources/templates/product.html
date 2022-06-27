@@ -70,7 +70,7 @@
             <div class="container d-block">
                 <div class="row">
                     <div class="col-md-3 text-center text-white py-2">
-                        <a href="#" th:href="@{/gallery}" class=""> <span>Sneakers</span></a>
+                        <a href="#" th:href="@{/gallery}" class=""> <span>Gallery</span></a>
                     </div>
                     <div class="col-md-3 text-center text-white py-2">
                         <a href="#" class=""><span>Sports</span></a>
@@ -81,9 +81,7 @@
                         </a>
                     </div>
                     <div class="col-md-3 text-center text-white py-2">
-                        <a href="#" class="">
-                            <span>List a Product</span>
-                        </a>
+                        <a href="#" th:href="@{/logout}" class="">  <span>Logout</span></a>
                     </div>
                 </div>
                 
@@ -199,7 +197,7 @@
             <div class="row">
               
                 <div class="col-md" th:each="sneaker, stat: ${sneaker}" th:if="${stat.count < 5}">
-                    <a href="#" th:href="@{/product}">
+                    <a >
                         <div class="card bg-white text-dark ">
                         
                             <img class="img-fluid " th:src="@{${sneaker.image}}" alt="Promo of product X">
