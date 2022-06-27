@@ -149,7 +149,7 @@
                     <h4 th:text="${sneaker.marketvalue}"/>
                     
                     <form action="#" th:action="@{/product}" method="post" th:object="${s1}">
-                    
+                    	<div class="row justify-content-center">
                         <div class="col-lg-7">
                             <input type="hidden" placeholder="s1 name" class=""  th:value="${sneaker.name}" th:name="name" th:id="name">
                         </div>
@@ -181,8 +181,9 @@
                         
                         
                         <div class="col-lg-7">
-                            <button type="submit" class="btn btn-dark btn-sm">submit</button>
+                            <button type="submit" class="btn btn-dark btn-sm">View</button>
                         </div>
+                    	</div>
                     </form>
                     
                 </div>
