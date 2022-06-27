@@ -30,7 +30,7 @@ public class ShoppingCartTests {
 	
 	@Test
 	public void testAddOneCartItem() {
-		Sneaker sneaker = entityManager.find(Sneaker.class, "384665-162");
+		Sneaker sneaker = entityManager.find(Sneaker.class, "GY0850");
 		User user = entityManager.find(User.class, 0000000000000000003);
 		
 		CartItem newItem = new CartItem();

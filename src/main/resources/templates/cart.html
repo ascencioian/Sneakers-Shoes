@@ -128,14 +128,17 @@
                             >product name</p>
                         </td>
                         <td>
-                            <input type="number" class="w-25 pl-1" value="1">
+                            
+                            <h5 th:text="${item.quantity}">Price</h5>
                         </td>
                         <td>
                             <h5 th:text="${sneaker.marketvalue}">Price</h5>
                         </td>
                         <td>
-                            <h5>Total</h5>
-                           
+                         
+                           <h5 th:with="result=${sneaker.marketvalue}*${item.quantity}" >
+							  <span th:text="${result}"></span>
+							</h5>
 							</div>
                         </td>
                     </tr>

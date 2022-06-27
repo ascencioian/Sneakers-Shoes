@@ -13,4 +13,8 @@ public interface CartItemRepository extends JpaRepository <CartItem, Integer> {
 
 	//custom methods
 	public List<CartItem> findByUser(User user);
+	
+	//
+	
+	
 }
