@@ -2,7 +2,7 @@
 This project is for creating a school management system where students can register for courses, and view the course assigned to them.
 
 **Link to project:**
-
+![Sneaker Store Demo](src/main/resources/demo/demo.gif)
 
 ## How It's Made:
 
