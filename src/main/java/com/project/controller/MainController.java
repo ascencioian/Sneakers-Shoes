@@ -33,7 +33,7 @@ public class MainController {
 	    Sneaker s1 = new Sneaker();
         model.addAttribute("s1", s1);
 		model.addAttribute("something", "this is something");
-		model.addAttribute( "sneaker", repo.getSneakers());
+		model.addAttribute( "sneaker", repo.getSneakersSorted());
 //System.out.println(user);
         return "index";
     }
@@ -61,6 +61,7 @@ public class MainController {
     public String gallery(Model model) {
         //User user = new User();
         //model.addAttribute("user", user);
+    	model.addAttribute( "sneakerSorted", repo.getSneakersSorted());
 	  model.addAttribute( "sneaker", repo.getSneakers());
          
         return "gallery";
@@ -82,7 +83,7 @@ public class MainController {
 		  model.addAttribute("s1", s1);
 		  System.out.println(s1);
 		  model.addAttribute( "sneaker", repo.getSneakers());
-		 
+		  model.addAttribute( "sneakerSorted", repo.getSneakersSorted());
 	      return "product";
 	  }
     

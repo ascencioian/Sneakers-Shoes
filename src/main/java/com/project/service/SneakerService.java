@@ -13,6 +13,9 @@ public interface SneakerService {
 	   //get one
 	   Optional<Sneaker> getSneaker(String sku);
 	   
+	   //get all sorted by release date
+	   List<Sneaker> getSneakersSorted();
+	   
 	   //----------------------------post----------------------
 	   Sneaker createSneaker(Sneaker s1);
 	   

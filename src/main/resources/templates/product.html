@@ -196,46 +196,46 @@
             
             <div class="row">
               
-                <div class="col-md" th:each="sneaker, stat: ${sneaker}" th:if="${stat.count < 5}">
+                <div class="col-md" th:each="sneakerSorted, stat: ${sneakerSorted}" th:if="${stat.count < 5}">
                     <a >
                         <div class="card bg-white text-dark ">
                         
-                            <img class="img-fluid " th:src="@{${sneaker.image}}" alt="Promo of product X">
+                            <img class="img-fluid " th:src="@{${sneakerSorted.image}}" alt="Promo of product X">
                         </div>
                     </a>
                     
-                    <h4 th:text="${sneaker.name}"/>
+                    <h4 th:text="${sneakerSorted.name}"/>
                   
-                    <h4 th:text="${sneaker.marketvalue}"/>
+                    <h4 th:text="${sneakerSorted.marketvalue}"/>
                     
                     <form action="#" th:action="@{/product}" method="post" th:object="${s1}">
                     	<div class="row justify-content-center">
 	                        <div class="col-lg-7">
-	                            <input type="hidden" placeholder="s1 name" class=""  th:value="${sneaker.name}" th:name="name" th:id="name">
+	                            <input type="hidden" placeholder="s1 name" class=""  th:value="${sneakerSorted.name}" th:name="name" th:id="name">
 	                        </div>
 	                         <div class="col-lg-7">
-	                            <input type="hidden" placeholder="s1 price" class="" th:value="${sneaker.marketvalue}" th:name="marketvalue" th:id="marketvalue" >
+	                            <input type="hidden" placeholder="s1 price" class="" th:value="${sneakerSorted.marketvalue}" th:name="marketvalue" th:id="marketvalue" >
 	                        </div>
 	                         <div class="col-lg-7">
-	                            <input type="hidden" placeholder="s1 image" class="" th:value="${sneaker.image}" th:name="image" th:id="image">
+	                            <input type="hidden" placeholder="s1 image" class="" th:value="${sneakerSorted.image}" th:name="image" th:id="image">
 	                        </div>
 	                         <div class="col-lg-7">
-	                            <input type="hidden" placeholder="s1 sku" class="" th:value="${sneaker.sku}" th:name="sku" th:id="sku">
+	                            <input type="hidden" placeholder="s1 sku" class="" th:value="${sneakerSorted.sku}" th:name="sku" th:id="sku">
 	                        </div>
 	                         <div class="col-lg-7">
-	                            <input type="hidden" placeholder="s1 brand" class="" th:value="${sneaker.brand}" th:name="brand" th:id="brand">
+	                            <input type="hidden" placeholder="s1 brand" class="" th:value="${sneakerSorted.brand}" th:name="brand" th:id="brand">
 	                        </div>
 	                         <div class="col-lg-7">
-	                            <input type="hidden" placeholder="s1 gender" class="" th:value="${sneaker.gender}" th:name="gender" th:id="gender">
+	                            <input type="hidden" placeholder="s1 gender" class="" th:value="${sneakerSorted.gender}" th:name="gender" th:id="gender">
 	                        </div>
 	                         <div class="col-lg-7">
-	                            <input type="hidden" placeholder="s1 colorway" class="" th:value="${sneaker.colorway}" th:name="colorway" th:id="colorway">
+	                            <input type="hidden" placeholder="s1 colorway" class="" th:value="${sneakerSorted.colorway}" th:name="colorway" th:id="colorway">
 	                        </div>
 	                         <div class="col-lg-7">
-	                            <input type="hidden" placeholder="s1 realease date" class="" th:value="${sneaker.releasedate}" th:name="releasedate" th:id="releasedate">
+	                            <input type="hidden" placeholder="s1 realease date" class="" th:value="${sneakerSorted.releasedate}" th:name="releasedate" th:id="releasedate">
 	                        </div>
 	                         <div class="col-lg-7">
-	                            <input type="hidden" placeholder="s1 retail price" class="" th:value="${sneaker.retailprice}" th:name="retailprice" th:id="retailprice">
+	                            <input type="hidden" placeholder="s1 retail price" class="" th:value="${sneakerSorted.retailprice}" th:name="retailprice" th:id="retailprice">
 	                        </div>
 	                        
 	                        

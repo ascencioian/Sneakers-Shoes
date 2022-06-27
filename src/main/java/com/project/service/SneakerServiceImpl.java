@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.project.entity.Sneaker;
@@ -30,6 +31,13 @@ public class SneakerServiceImpl implements SneakerService{
 		
 		return repo.findById(sku);
 		
+	}
+	
+	//get all sorted
+	@Override
+	public List<Sneaker> getSneakersSorted() {
+		// TODO Auto-generated method stub
+		 return (List<Sneaker>) repo.findAll(Sort.by(Sort.Direction.ASC, "releasedate"));
 	}
 
 	//-------------------------------post
@@ -63,6 +71,8 @@ public class SneakerServiceImpl implements SneakerService{
 		// TODO Auto-generated method stub
 		repo.deleteById(sku);
 	}
+
+
 
 	
 
