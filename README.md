@@ -8,7 +8,7 @@ https://stockx.com/
 https://www.flightclub.com/
 
 **Gif to project:**
-![Sneaker Store Demo](src/main/resources/static/demo/demo.gif)
+![Sneaker Store Demo](src/main/resources/static/demo/sneakerDemo.gif)
 
 ## How It's Made:
 
