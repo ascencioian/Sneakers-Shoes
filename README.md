@@ -7,11 +7,11 @@ https://stockx.com/
 
 https://www.flightclub.com/
 
-**Seed data for product table provided by this API: **
+**Seed data for product table provided by this API:**
 
 https://rapidapi.com/tg4-solutions-tg4-solutions-default/api/the-sneaker-database/
 
-**Wireframing for design done in Figma: **
+**Wireframing for design done in Figma:**
 
 https://www.figma.com/file/zKZ0ufgrqMh28DPuKthFU4/ButterAcademy---Figma-Tutorial?node-id=0%3A1
 
@@ -20,7 +20,7 @@ https://www.figma.com/file/zKZ0ufgrqMh28DPuKthFU4/ButterAcademy---Figma-Tutorial
 
 ## How It's Made:
 
-**Tech used:** Java, jUnit 5, ORM, Spring Security, MariaDB, SQL, HQL, Maven, JPA,  HTML, CSS, Javascript, Bootstrap 5, spring tool suite, Postman
+**Tech used:** Java, jUnit 5, ORM, Spring Security, MariaDB, SQL, HQL, Maven, Spring JPA,  HTML, CSS, Javascript, Bootstrap 5, spring tool suite, Postman, Thymeleaf
 
 
 ## Optimizations
