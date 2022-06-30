@@ -12,6 +12,7 @@ https://www.flightclub.com/
 https://rapidapi.com/tg4-solutions-tg4-solutions-default/api/the-sneaker-database/
 
 **Wireframing for design done in Figma: **
+
 https://www.figma.com/file/zKZ0ufgrqMh28DPuKthFU4/ButterAcademy---Figma-Tutorial?node-id=0%3A1
 
 **Visual demo to project:**
