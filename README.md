@@ -1,5 +1,5 @@
 # Full Stack E-Commerce Application
-This project is a full stack application that is a concept of an sneaker e-commerce site. it is built on top of spring tool suite and implements spring security. Data provided by RESTAPI.
+This project is a full stack application that is a concept of an sneaker e-commerce site. it is built on top of spring tool suite and implements spring security. Data provided by RESTAPI the sneaker database.
 
 **Inspiration for this project was provided by:**
 
