@@ -68,6 +68,5 @@ public class CartItem implements Serializable {
 	public String toString() {
 		return "CartItem [id=" + id + ", sneaker=" + sneaker + ", user=" + user + ", quantity=" + quantity + "]";
 	}
-	
-	
+
 }
