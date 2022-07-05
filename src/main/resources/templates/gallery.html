@@ -99,7 +99,7 @@
             
             <div class="row">
               
-                <div class="col-md" th:each="sneakerSorted, stat: ${sneakerSorted}" th:if="${stat.count < 4}">
+                <div class="col-md" th:each="sneakerSorted, stat: ${sneakerSorted}" th:if="${stat.count < 5}">
                     <a href="#" th:href="@{#}">
                         <div class="card bg-white text-dark ">
                         
@@ -155,25 +155,7 @@
         </div>
     </section>
     </section>
-    <!-- video -->
-    <div class="container">
-        <div class="d-sm-flex align-items-center justify-content-around  " id="promoBannerBackground"> 
-        <div>
-            <h1 class="display-1 d-none d-md-block ">
-               S*N*S
-            </h1>
-        </div>
 
-        <div class="embed-responsive embed-responsive-16by9 py-2 px-2 bg-black">
-            <iframe class="embed-responsive-item" src="/video/Commercial .mp4" allowfullscreen sandbox></iframe>
-          </div>
-          <div>
-            <h1 class="display-1 d-none d-md-block ">
-                S*N*S
-            </h1>
-        </div>
-        </div>
-    </div>
 
     <!-- product -->
     <section class="p-5 text-center">

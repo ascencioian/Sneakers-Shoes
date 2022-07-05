@@ -10,12 +10,11 @@ import com.project.entity.Sneaker;
 import com.project.entity.User;
 
 @Repository
-public interface CartItemRepository extends JpaRepository <CartItem, Integer> {
+public interface CartItemRepository extends JpaRepository<CartItem, Integer> {
 
-	//custom methods
+	// custom methods
 	public List<CartItem> findByUser(User user);
-	
+
 	public CartItem findByUserAndSneaker(User user, Sneaker sneaker);
-	
-	
+
 }

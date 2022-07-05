@@ -7,7 +7,9 @@ import com.project.entity.User;
 import com.project.security.UserRegistrationDto;
 
 public interface UserService extends UserDetailsService {
-   User findByEmail(String email);
-   User save(UserRegistrationDto registration);
-   User getCurrentlyLoggedInUser(Authentication authentication);
+	User findByEmail(String email);
+
+	User save(UserRegistrationDto registration);
+
+	User getCurrentlyLoggedInUser(Authentication authentication);
 }

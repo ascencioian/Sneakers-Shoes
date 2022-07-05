@@ -13,6 +13,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.project.entity.Role;
 import com.project.entity.User;
 import com.project.repository.UserRepository;
@@ -21,66 +24,57 @@ import com.project.security.UserRegistrationDto;
 @Service
 public class UserServiceImpl implements UserService {
 
-   @Autowired
-   private UserRepository userRepository;
+	private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
-   @Autowired
-   private BCryptPasswordEncoder passwordEncoder;
+	@Autowired
+	private UserRepository userRepository;
 
-   public User findByEmail(String email){
-       return userRepository.findByEmail(email);
-   }
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
-   public User save(UserRegistrationDto registration){
-       User user = new User();
-       user.setFirstName(registration.getFirstName());
-       user.setLastName(registration.getLastName());
-       user.setEmail(registration.getEmail());
-       user.setPassword(passwordEncoder.encode(registration.getPassword()));
-       user.setRoles(Arrays.asList(new Role("ROLE_USER")));
-       return userRepository.save(user);
-   }
+	public User findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
 
-   @Override
-   public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-       User user = userRepository.findByEmail(email);
-       if (user == null){
-           throw new UsernameNotFoundException("Invalid username or password.");
-       }
-       return new org.springframework.security.core.userdetails.User(user.getEmail(),
-               user.getPassword(),
-               mapRolesToAuthorities(user.getRoles()));
-   }
+	public User save(UserRegistrationDto registration) {
+		User user = new User();
+		user.setFirstName(registration.getFirstName());
+		user.setLastName(registration.getLastName());
+		user.setEmail(registration.getEmail());
+		user.setPassword(passwordEncoder.encode(registration.getPassword()));
+		user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+		return userRepository.save(user);
+	}
 
-   private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-       return roles.stream()
-               .map(role -> new SimpleGrantedAuthority(role.getName()))
-               .collect(Collectors.toList());
-   }
-   
-   
-   public User getCurrentlyLoggedInUser(Authentication authentication) {
-	  // if(authentication == null) return null;
-	   
-	   //User user = null;
-	   
-	   Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	   
-	   String username = "";
-	   
-	   //here need to get object
-	   if(principal instanceof UserDetails) {
-		   username = ((UserDetails)principal).getUsername();
-	   }
-	   
-	   User user = userRepository.findByEmail(username);
-	   
-	   
-	   
-	    System.out.println("from userservice implementation "  + user);
-		return user;	   
-   }
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		User user = userRepository.findByEmail(email);
+		if (user == null) {
+			throw new UsernameNotFoundException("Invalid username or password.");
+		}
+		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+				mapRolesToAuthorities(user.getRoles()));
+	}
 
+	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
+		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+	}
+
+	public User getCurrentlyLoggedInUser(Authentication authentication) {
+
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		String username = "";
+
+		if (principal instanceof UserDetails) {
+			username = ((UserDetails) principal).getUsername();
+		}
+
+		User user = userRepository.findByEmail(username);
+
+		log.info("getCurrentlyLoggedInUser() returned: " + user);
+
+		return user;
+	}
 
 }
-   
